@@ -1,24 +1,16 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./App.css";
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  const getApiData = async () => {
-    const { data } = await axios.get(
-      `https://thesimpsonsquoteapi.glitch.me/quotes?count=n50`
-    );
-    console.log(data);
-    //dispatch({ type: SET_TODOS, data });
-  };
-
-  useEffect(() => {
-    getApiData();
-  }, []);
-
-  return <></>;
+  return (
+    <>
+      <button onClick={increment}>increment</button>
+      <button onClick={decrement}>decrement</button>
+      <p>{count}</p>
+    </>
+  );
 };
 
 export default App;
