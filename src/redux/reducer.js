@@ -1,14 +1,9 @@
-import { initialState } from "./initialState";
-import {
-  ADD_TODO,
-  DELETE_TODO,
-  SET_TODOS,
-  SET_TODO_TEXT,
-  TOGGLE_COMPLETED,
-} from "./types";
-
-export function reducer(state = initialState, action) {
+export function reducer(state, action) {
   switch (action.type) {
+    case "INCREMENT":
+      const copy = { ...state };
+      copy.count = copy.count + 1;
+
     default:
       return state;
   }
