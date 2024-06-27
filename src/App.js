@@ -1,13 +1,29 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 
 const App = () => {
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.count);
   return (
     <>
-      <button onClick={increment}>increment</button>
-      <button onClick={decrement}>decrement</button>
+      <button
+        onClick={() => {
+          dispatch({ type: "INCREMENT" });
+        }}
+      >
+        increment
+      </button>
+
+      <button
+        onClick={() => {
+          dispatch({ type: "DECREMENT" });
+        }}
+      >
+        decrement
+      </button>
+
       <p>{count}</p>
     </>
   );
